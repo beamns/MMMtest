@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VMW140M74N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VMW140M74N');
+    </script>
+    
+    <!-- SEO Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free AI-powered stock scanner that finds big movers with news in real-time. Scan for gainers, losers, and after-hours movers with ticker-specific news alerts. Get AI analysis scores instantly.">
+    <meta name="keywords" content="stock scanner, AI stock scanner, stock screener, day trading scanner, swing trading stocks, stock market scanner, premarket scanner, after hours stocks, stock news scanner, momentum stocks, gap scanner, high volume stocks, stock alerts, trading signals, AI stock analysis, real-time stock scanner, free stock screener, stock market movers, penny stock scanner, volatile stocks">
+    <meta name="author" content="Money Making Moves">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    
+    <!-- Geographic Targeting -->
+    <meta name="geo.region" content="US">
+    <meta name="geo.placename" content="United States">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Money Making Moves">
+    <meta property="og:title" content="AI Stock Scanner - Find Big Movers with News | Money Making Moves">
+    <meta property="og:description" content="Scan for stock market gainers, losers, and after-hours movers with AI-powered analysis. Get real-time alerts on stocks with ticker-specific news. 100% free stock scanner.">
+    <meta property="og:url" content="https://moneymakingmoves.com">
+    <meta property="og:image" content="https://moneymakingmoves.com/static/images/logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Stock Scanner - Money Making Moves">
+    <meta name="twitter:description" content="Find big stock movers with AI analysis and news alerts. Free real-time scanner for day traders and swing traders.">
+    <meta name="twitter:image" content="https://moneymakingmoves.com/static/images/logo.png">
+    <meta name="twitter:site" content="@moneymakingmoves">
+    
+    <title>AI Stock Scanner - Find Big Movers with News | Money Making Moves</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://moneymakingmoves.com">
+    
+    <!-- Stylesheets -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'modern-green': '#00ff88',
+                        'modern-cyan': '#00d4ff',
+                        'modern-purple': '#b47aff',
+                        'modern-pink': '#ff6b9d',
+                        'modern-dark': '#0a0a0f',
+                        'modern-darker': '#050508',
+                        'modern-card': '#13131a'
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        [x-cloak] { display: none !important; }
+        
+        body {
+            background: #0a0a0f;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(0, 255, 136, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(180, 122, 255, 0.05) 0px, transparent 50%);
+        }
+        
+        .glass-effect {
+            background: rgba(19, 19, 26, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .neon-border {
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
+        }
+        
+        .neon-glow {
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+        }
+        
+        .scrollable-table-container {
+            max-height: calc(20 * 3.5rem);
+            overflow-y: auto;
+            border-radius: 1rem;
+        }
+        
+        .scrollable-table-container thead {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(13, 13, 20, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        .scrollable-table-container::-webkit-scrollbar { width: 8px; }
+        .scrollable-table-container::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 10px; }
+        .scrollable-table-container::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #00ff88, #00d4ff); border-radius: 10px; }
+        .scrollable-table-container::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #00d4ff, #b47aff); }
+        
+        .modal-content {
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+        
+        .modal-content::-webkit-scrollbar { width: 8px; }
+        .modal-content::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 10px; }
+        .modal-content::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #00ff88, #00d4ff); border-radius: 10px; }
+        
+        .sortable-header {
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        
+        .sortable-header:hover {
+            background: rgba(0, 255, 136, 0.1);
+            transform: translateY(-1px);
+        }
+        
+        .sort-icon {
+            display: inline-block;
+            margin-left: 0.5rem;
+            opacity: 0.3;
+            transition: all 0.3s;
+        }
+        
+        .sort-icon.active {
+            opacity: 1;
+            color: #00ff88;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            padding-bottom: 0.15em;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 50%, #b47aff 100%);
+        }
+        
+        .btn-modern {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .btn-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-modern:hover::before {
+            left: 100%;
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.2);
+        }
+        
+        .tab-button {
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .tab-button.active {
+            border-bottom-color: #00ff88;
+            color: #00ff88;
+        }
+        
+        /* Mobile Optimizations */
+        /* ── TABLET (≤768px) ──────────────────────────── */
+        @media (max-width: 768px) {
+            /* Table */
+            .scrollable-table-container {
+                max-height: calc(15 * 3.5rem);
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            table { font-size: 0.8rem; }
+            th, td { padding: 0.6rem 0.4rem !important; }
+
+            /* Hide secondary columns */
+            .mobile-hide { display: none !important; }
+
+            /* Nav */
+            nav .px-6, nav .lg\:px-8 {
+                padding-left: 0.75rem !important;
+                padding-right: 0.75rem !important;
+            }
+
+            /* Page padding */
+            main { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+            .px-6 { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+
+            /* Scanner banner */
+            .text-4xl, .text-5xl { font-size: 1.75rem !important; }
+            .text-3xl { font-size: 1.4rem !important; }
+            .text-2xl { font-size: 1.1rem !important; }
+            .lg\:text-4xl, .lg\:text-5xl { font-size: 1.75rem !important; }
+
+            /* Card padding */
+            .p-6, .lg\:p-8 { padding: 1rem !important; }
+            .p-5 { padding: 0.875rem !important; }
+
+            /* Tab bar */
+            .tab-button { padding: 0.4rem 0.75rem !important; font-size: 0.75rem !important; }
+
+            /* Filters horizontal wrap */
+            .flex-wrap { flex-wrap: wrap !important; }
+
+            /* Modal — full screen */
+            .fixed.inset-0 > div { 
+                max-width: 100vw !important;
+                width: 100vw !important;
+                margin: 0 !important;
+                border-radius: 0 !important;
+                height: 100dvh;
+                max-height: 100dvh;
+                display: flex;
+                flex-direction: column;
+            }
+            .max-h-\[80vh\] { 
+                max-height: calc(100dvh - 130px) !important;
+            }
+
+            /* Modal header price strip — stack on mobile */
+            .modal-price-strip { flex-direction: column !important; gap: 0.5rem !important; }
+
+            /* Grid cols */
+            .grid-cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+            .grid-cols-3 { grid-template-columns: repeat(1, minmax(0, 1fr)) !important; }
+        }
+
+        /* ── PHONE (≤640px) ──────────────────────────── */
+        @media (max-width: 640px) {
+            /* Nav shrink */
+            nav .h-20 { height: 3.5rem !important; }
+            nav img { height: 2.5rem !important; width: 2.5rem !important; margin-bottom: 0 !important; }
+            nav h1 { font-size: 1rem !important; }
+            nav p { display: none !important; }
+
+            /* Tighter page padding */
+            main { padding: 0.5rem !important; }
+            .max-w-7xl { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
+
+            /* Banner title */
+            .text-4xl, .text-5xl { font-size: 1.4rem !important; }
+            .text-3xl { font-size: 1.1rem !important; }
+
+            /* Cards */
+            .glass-effect { border-radius: 0.875rem; }
+            .p-6, .lg\:p-8 { padding: 0.75rem !important; }
+            .rounded-2xl { border-radius: 0.875rem !important; }
+
+            /* Scan button full width */
+            .btn-modern { width: 100% !important; justify-content: center !important; }
+
+            /* Activity feed smaller */
+            .max-h-64 { max-height: 6rem !important; }
+
+            /* Tab bar tighter */
+            .px-5 { padding-left: 0.625rem !important; padding-right: 0.625rem !important; }
+        }
+        
+        /* Custom scrollbar for activity feed */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(0, 255, 136, 0.3);
+            border-radius: 3px;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 255, 136, 0.5);
+        }
+    </style>
+    
+    <!-- Schema.org structured data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Money Making Moves - AI Stock Scanner",
+      "alternateName": "MMM Stock Scanner",
+      "url": "https://moneymakingmoves.com",
+      "description": "Free AI-powered stock scanner that identifies big movers with ticker-specific news. Real-time scanning for gainers, losers, and after-hours stocks with AI analysis scores.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "featureList": [
+        "Real-time stock scanning",
+        "AI-powered stock analysis",
+        "Ticker-specific news alerts",
+        "After-hours movers tracking",
+        "Gainers and losers filtering",
+        "Customizable scan filters",
+        "AI score ratings (0-100)",
+        "Market status monitoring",
+        "Trade level calculations",
+        "TradingView chart integration"
+      ],
+      "screenshot": "https://moneymakingmoves.com/static/images/logo.png",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "127",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Money Making Moves",
+        "url": "https://moneymakingmoves.com"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "Money Making Moves",
+        "url": "https://moneymakingmoves.com"
+      },
+      "browserRequirements": "Requires JavaScript. Works on Chrome, Firefox, Safari, Edge.",
+      "softwareVersion": "2.0",
+      "datePublished": "2024-01-15",
+      "dateModified": "2026-02-17"
+    }
+    </script>
+    
+    <!-- FAQ Schema for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Money Making Moves stock scanner?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Money Making Moves is a free AI-powered stock scanner that finds big movers with ticker-specific news in real-time. It scans for gainers, losers, and after-hours stocks with AI analysis scores."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the stock scanner free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Money Making Moves stock scanner is 100% free. No credit card required, no hidden fees."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What stocks can I scan for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can scan for gainers, losers, both directions, and after-hours movers. Filter by minimum price, percent change, AI score, and ticker-specific news."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the scanner work after hours?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Enable the after-hours option to scan for extended-hours movers when the market is closed."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="h-full">
+    <div x-data="mmmDashboard()" x-cloak class="min-h-full">
+        <!-- Navigation -->
+        <nav class="glass-effect border-b border-white border-opacity-10 sticky top-0 z-50">
+            <div class="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
+                <div class="flex h-20 items-center justify-between gap-4">
+                    <!-- Left: Logo and Title -->
+                    <div class="flex items-center space-x-2 md:space-x-3">
+                        <img src="/static/images/logo.png" alt="Money Making Moves" class="h-20 w-20 md:h-32 md:w-32 object-contain -mb-4 md:-mb-6">
+                        <div>
+                            <h1 class="text-xl md:text-2xl font-black gradient-text tracking-tight">
+                                Money Making Moves
+                            </h1>
+                            <p class="text-xs text-gray-400 font-semibold tracking-widest">AI Stock Scanner for Traders</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Center: Ticker Search -->
+                    <div class="flex-1 max-w-xs hidden sm:block relative" x-show="isPro" x-data="{ query: '', results: [], searching: false, open: false }"
+                         @keydown.escape="open = false" @click.outside="open = false">
+                        <div class="relative">
+                            <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xs"></i>
+                            <input
+                                type="text"
+                                placeholder="Search ticker..."
+                                x-model="query"
+                                @input.debounce.300ms="
+                                    if (query.length >= 1) {
+                                        open = true;
+                                        const t = query.toUpperCase().trim();
+                                        $dispatch('open-ticker', { ticker: t });
+                                    } else { open = false; }
+                                "
+                                @keydown.enter="
+                                    if (query.length >= 1) {
+                                        const t = query.toUpperCase().trim();
+                                        open = false;
+                                        query = '';
+                                        $dispatch('open-ticker', { ticker: t });
+                                    }
+                                "
+                                class="w-full pl-8 pr-10 py-2 rounded-xl bg-white bg-opacity-5 border border-white border-opacity-10 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-modern-green focus:border-opacity-50 transition"
+                            />
+                            <i class="fas fa-lock absolute right-3 top-1/2 -translate-y-1/2 text-yellow-500 text-xs opacity-60" title="Pro feature"></i>
+                        </div>
+                    </div>
+
+                    <!-- Right: Account & Status -->
+                    <div class="flex items-center space-x-2 md:space-x-4">
+                        <!-- Login button (not authenticated) -->
+                        <button x-show="!authenticated" @click="showAuthModal = true; authMode = 'login'"
+                                class="text-sm text-modern-green hover:text-white font-semibold transition">
+                            Login
+                        </button>
+                        
+                        <!-- Account menu (authenticated) -->
+                        <div x-show="authenticated" class="relative">
+                            <button @click="showAccountMenu = !showAccountMenu" 
+                                    class="flex items-center space-x-2 text-sm text-white hover:text-modern-green transition">
+                                <i class="fas fa-user-circle text-xl"></i>
+                                <span x-text="user?.email" class="hidden sm:inline"></span>
+                            </button>
+                            
+                            <div x-show="showAccountMenu" @click.away="showAccountMenu = false"
+                                 x-transition
+                                 class="absolute right-0 mt-2 w-56 glass-effect rounded-xl p-2 border border-white border-opacity-10">
+                                <div class="px-4 py-2 border-b border-white border-opacity-10 mb-1">
+                                    <p class="text-xs text-gray-500 truncate" x-text="user?.email"></p>
+                                    <p class="text-xs font-bold mt-0.5"
+                                       :class="user?.is_subscribed ? 'text-modern-green' : 'text-gray-400'"
+                                       x-text="user?.is_subscribed ? (subscriptionTier === 'rookie' ? '🌱 Rookie' : '✨ Pro') : 'Free'"></p>
+                                </div>
+                                <button @click="manageBilling(); showAccountMenu = false"
+                                        class="w-full text-left px-4 py-2 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded-lg transition">
+                                    <i class="fas fa-credit-card mr-2"></i>Manage Subscription
+                                </button>
+                                <button @click="logout(); showAccountMenu = false" 
+                                        class="w-full text-left px-4 py-2 text-red-500 hover:bg-white hover:bg-opacity-10 rounded-lg transition">
+                                    <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <span class="text-gray-400 text-xs hidden md:inline" x-show="lastScanTime">
+                            <span x-text="formatTime(lastScanTime)"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hot Stocks Section -->
+        <div x-show="hotStocks.length > 0" class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pt-3">
+            <div class="glass-effect rounded-xl p-3 md:p-4 neon-border">
+                <h3 class="text-xs md:text-sm font-bold text-gray-400 mb-2 md:mb-3">
+                    <i class="fas fa-fire mr-1 md:mr-2"></i>HOT STOCKS (Last 7 Days)
+                </h3>
+                <div class="flex flex-wrap gap-1.5 md:gap-2">
+                    <template x-for="stock in hotStocks.slice(0, 10)" :key="stock.ticker">
+                        <span class="px-2 md:px-3 py-1 bg-modern-green bg-opacity-20 text-modern-green rounded-lg text-xs md:text-sm font-bold hover:bg-opacity-30 transition cursor-pointer">
+                            <span x-text="stock.ticker"></span>
+                        </span>
+                    </template>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hot Themes Section -->
+        <div x-show="hotThemes.length > 0" class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pt-3">
+            <div class="glass-effect rounded-xl p-3 md:p-4 neon-border">
+                <div class="flex flex-col sm:flex-row items-start sm:justify-between gap-2 sm:gap-3">
+                    <!-- Themes -->
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-xs md:text-sm font-bold text-gray-400 mb-2 md:mb-3">
+                            <i class="fas fa-rocket mr-1 md:mr-2"></i>HOT THEMES TODAY
+                        </h3>
+                        <div class="flex flex-wrap gap-1.5">
+                            <template x-for="theme in hotThemes.slice(0, 10)" :key="theme">
+                                <span class="px-2 md:px-3 py-1 bg-modern-cyan bg-opacity-20 text-modern-cyan rounded-lg text-xs md:text-sm font-bold hover:bg-opacity-30 transition cursor-pointer border border-modern-cyan border-opacity-20">
+                                    <span x-text="theme"></span>
+                                </span>
+                            </template>
+                        </div>
+                    </div>
+
+                    <!-- Market Pulse -->
+                    <div x-show="marketPulse" class="order-first sm:order-last shrink-0 flex flex-col items-start sm:items-end gap-1">
+                        <p class="text-xs font-bold text-gray-400">MARKET PULSE</p>
+                        <div class="flex flex-row items-center gap-3">
+                            <span class="text-xs text-gray-400">
+                                ES <span :class="marketPulse?.spy?.pct >= 0 ? 'text-modern-green' : 'text-red-400'"
+                                          x-text="(marketPulse?.spy?.pct >= 0 ? '+' : '') + (marketPulse?.spy?.pct || 0).toFixed(2) + '%'"></span>
+                            </span>
+                            <span class="text-xs text-gray-400">
+                                NQ <span :class="marketPulse?.qqq?.pct >= 0 ? 'text-modern-green' : 'text-red-400'"
+                                          x-text="(marketPulse?.qqq?.pct >= 0 ? '+' : '') + (marketPulse?.qqq?.pct || 0).toFixed(2) + '%'"></span>
+                            </span>
+                            <span class="text-xs text-gray-400">
+                                VIX <span class="text-modern-cyan" x-text="(marketPulse?.vix?.price || 0).toFixed(1)"></span>
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-sm font-black border"
+                                  :class="{
+                                    'bg-green-500 bg-opacity-20 text-modern-green border-green-500 border-opacity-40': marketPulse?.label === 'BULL',
+                                    'bg-red-500 bg-opacity-20 text-red-400 border-red-500 border-opacity-40': marketPulse?.label === 'BEAR',
+                                    'bg-yellow-500 bg-opacity-20 text-yellow-400 border-yellow-500 border-opacity-40': marketPulse?.label === 'NEUTRAL'
+                                  }">
+                                <i class="fas text-xs" :class="marketPulse?.icon || 'fa-minus'"></i>
+                                <span x-text="marketPulse?.label || '...'"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-8">
+            
+<!-- Activity Feed - Real-Time -->
+<div class="glass-effect rounded-2xl p-4 sm:p-6 mb-4 sm:mb-8 neon-border hidden sm:block" x-data="{ showFeed: true }">
+    <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center space-x-3">
+            <div class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+            <h3 class="text-lg font-black gradient-text">LIVE ACTIVITY</h3>
+        </div>
+        <div class="flex items-center space-x-2">
+            <div class="flex items-center space-x-2 bg-modern-green bg-opacity-20 px-3 py-1 rounded-full border border-modern-green border-opacity-30">
+                <i class="fas fa-users text-modern-green text-sm"></i>
+                <span class="text-modern-green font-bold text-sm" x-text="activeUsers || 0"></span>
+                <span class="text-gray-400 text-xs">active</span>
+            </div>
+            <button @click="showFeed = !showFeed" class="text-gray-400 hover:text-white transition">
+                <i class="fas" :class="showFeed ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+            </button>
+        </div>
+    </div>
+    
+    <div x-show="showFeed" x-transition>
+        <!-- Show placeholder when no activity -->
+        <div x-show="!activityFeed || activityFeed.length === 0" class="text-center py-8">
+            <i class="fas fa-chart-line text-4xl text-gray-600 mb-3"></i>
+            <p class="text-gray-400 text-sm">Run a scan to see live activity</p>
+        </div>
+        
+        <!-- Show activity when available -->
+        <div x-show="activityFeed && activityFeed.length > 0" class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+            <template x-for="activity in activityFeed.slice(0, 2)" :key="activity.timestamp">
+                <div class="flex items-start space-x-3 p-3 rounded-lg bg-white bg-opacity-5 hover:bg-opacity-10 transition">
+                    <span class="text-2xl" x-text="activity.emoji"></span>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-white text-sm" x-text="activity.message"></p>
+                        <p class="text-gray-500 text-xs mt-1">just now</p>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</div>
+
+<!-- Scanner Controls -->
+<div class="glass-effect rounded-2xl p-4 sm:p-6 lg:p-8 mb-4 sm:mb-8 neon-border card-hover">
+    
+    <!-- Main Title Bar -->
+    <div class="flex flex-row items-center justify-between gap-2 mb-4">
+        <!-- Left: Title -->
+        <div class="flex items-center gap-3 min-w-0">
+            <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black gradient-text whitespace-nowrap">
+                Big Money Movers
+            </h2>
+        </div>
+        
+        <!-- Right: Action Buttons -->
+        <div class="flex items-center gap-2 shrink-0">
+            <!-- Scan button — hidden on mobile, shown on desktop -->
+            <button @click="runScan()" 
+                    :disabled="isScanning"
+                    :class="isScanning ? 'bg-gray-700 cursor-not-allowed' : 'gradient-bg neon-glow'"
+                    class="hidden sm:block text-white px-8 py-3 rounded-xl font-black text-base transition">
+                <i class="fas fa-search mr-2"></i>
+                <span x-text="isScanning ? 'SCANNING...' : 'SCAN NOW'"></span>
+            </button>
+            <!-- Auto-refresh toggle -->
+            <button x-show="lastScanTime"
+                    @click="toggleAutoRefresh()" 
+                    :class="autoRefreshEnabled ? 'bg-modern-green bg-opacity-20 text-modern-green border-modern-green' : 'bg-gray-700 text-gray-400 border-gray-600'"
+                    class="px-3 py-3 rounded-xl text-xs font-bold border transition hover:opacity-80 shrink-0"
+                    :title="autoRefreshEnabled ? 'Auto-refresh ON' : 'Auto-refresh OFF'">
+                <i class="fas" :class="autoRefreshEnabled ? 'fa-sync fa-spin' : 'fa-pause'"></i>
+                <span class="ml-1.5 hidden sm:inline" x-text="autoRefreshEnabled ? 'Auto' : 'Paused'"></span>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Status Bar -->
+    <div class="flex flex-wrap items-center gap-2 sm:gap-3 pb-3 sm:pb-4 border-b border-gray-700 border-opacity-30">
+        <!-- Auto-updating badge -->
+        <div x-show="autoRefreshEnabled && lastScanTime" 
+             class="flex items-center space-x-2 px-3 py-1 bg-modern-green bg-opacity-10 rounded-full border border-modern-green border-opacity-30">
+            <div class="w-2 h-2 bg-modern-green rounded-full animate-pulse"></div>
+            <span class="text-modern-green text-xs font-bold">Auto-updating</span>
+        </div>
+        
+        <!-- Last updated -->
+        <p x-show="lastScanTime" class="text-gray-500 text-xs">
+            Updated <span x-text="lastScanTime ? new Date(lastScanTime).toLocaleTimeString() : ''"></span>
+        </p>
+        
+
+    </div>
+    
+    <!-- Settings -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+        <div>
+            <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Min Change %</label>
+            <input type="number" x-model="settings.min_change_pct" step="1" min="5" max="100"
+                   @change="saveSettings()"
+                   class="w-full px-4 py-3 rounded-lg bg-modern-darker text-white border border-white border-opacity-10 focus:border-modern-green focus:outline-none transition">
+        </div>
+        
+        <div>
+            <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Min Price ($)</label>
+            <input type="number" x-model="settings.min_price" step="0.50" min="0.50" max="100"
+                   @change="saveSettings()"
+                   class="w-full px-4 py-3 rounded-lg bg-modern-darker text-white border border-white border-opacity-10 focus:border-modern-green focus:outline-none transition">
+        </div>
+        
+        <div>
+            <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Direction</label>
+            <select x-model="settings.direction" @change="saveSettings()"
+                    class="w-full px-4 py-3 rounded-lg bg-modern-darker text-white border border-white border-opacity-10 focus:border-modern-green focus:outline-none cursor-pointer transition">
+                <option value="both">Both (↑ & ↓)</option>
+                <option value="gainers">Gainers Only (↑)</option>
+                <option value="losers">Losers Only (↓)</option>
+            </select>
+        </div>
+        
+        <div>
+            <label class="block text-xs font-bold text-gray-400 uppercase mb-2">
+                Min AI Score: <span class="text-modern-green font-bold" x-text="settings.min_ai_score"></span>
+            </label>
+            <input type="range" x-model="settings.min_ai_score" min="0" max="100" step="5"
+                   @change="saveSettings()"
+                   class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer slider-modern">
+        </div>
+    </div>
+    
+    <div class="mt-3 flex flex-nowrap gap-x-3 sm:gap-x-5 overflow-hidden">
+        <label class="flex items-center space-x-2 cursor-pointer">
+            <input type="checkbox" x-model="settings.include_after_hours" @change="saveSettings()"
+                   class="w-4 h-4 rounded border-gray-600 bg-modern-darker text-modern-green focus:ring-modern-green focus:ring-offset-0">
+            <span class="text-xs sm:text-sm text-gray-300 font-semibold whitespace-nowrap">After-hours</span>
+        </label>
+        <label class="flex items-center space-x-2 cursor-pointer">
+            <input type="checkbox" x-model="settings.require_ticker_news" @change="saveSettings()"
+                   class="w-4 h-4 rounded border-gray-600 bg-modern-darker text-modern-green focus:ring-modern-green focus:ring-offset-0">
+            <span class="text-xs sm:text-sm text-gray-300 font-semibold whitespace-nowrap">Ticker news</span>
+        </label>
+        <label class="flex items-center space-x-2 cursor-pointer">
+            <input type="checkbox" x-model="settings.require_hot_theme" @change="saveSettings()"
+                   class="w-4 h-4 rounded border-gray-600 bg-modern-darker text-modern-green focus:ring-modern-green focus:ring-offset-0">
+            <span class="text-xs sm:text-sm text-gray-300 font-semibold whitespace-nowrap">🔥 Hot themes</span>
+        </label>
+    </div>
+
+    <!-- Mobile-only Scan Button (below filters, above presets) -->
+    <div class="mt-4 sm:hidden">
+        <button @click="runScan()"
+                :disabled="isScanning"
+                :class="isScanning ? 'bg-gray-700 cursor-not-allowed' : 'gradient-bg neon-glow'"
+                class="w-full text-white py-3 rounded-xl font-black text-base transition">
+            <i class="fas fa-search mr-2"></i>
+            <span x-text="isScanning ? 'SCANNING...' : 'SCAN NOW'"></span>
+        </button>
+    </div>
+
+    <!-- Scan Presets -->
+    <div class="mt-5 pt-4 border-t border-white border-opacity-10">
+        <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-gray-400 uppercase">Scan Presets</span>
+            <button x-show="isPro || isRookie" @click="showPresetSave = !showPresetSave"
+                    class="text-xs text-modern-green hover:text-white transition font-semibold">
+                + Save Current
+            </button>
+        </div>
+        <div x-show="showPresetSave" class="flex gap-2 mb-3">
+            <input type="text" x-model="newPresetName" placeholder="Preset name..."
+                   @keydown.enter="savePreset()"
+                   class="flex-1 px-3 py-1.5 text-sm rounded-lg bg-modern-darker text-white border border-white border-opacity-10 focus:border-modern-green focus:outline-none">
+            <button @click="savePreset()"
+                    class="px-3 py-1.5 text-sm bg-modern-green bg-opacity-20 text-modern-green rounded-lg hover:bg-opacity-30 transition font-semibold">Save</button>
+        </div>
+        <div x-show="!authenticated" class="text-xs text-gray-600">Sign in to save presets</div>
+        <div x-show="authenticated && !isPro && !isRookie" class="text-xs text-gray-600">⭐ <button @click="showAuthModal = true; authMode = 'upgrade'" class="text-modern-green hover:underline font-semibold">Upgrade to Pro</button> to save presets</div>
+        <div x-show="(isPro || isRookie) && presets.length === 0 && !showPresetSave" class="text-xs text-gray-600">No presets saved yet</div>
+        <div class="space-y-1">
+            <template x-for="preset in presets" :key="preset.id">
+                <div class="flex items-center justify-between p-2 rounded-lg bg-white bg-opacity-5 hover:bg-opacity-10 transition">
+                    <button @click="loadPreset(preset)" class="flex-1 text-left text-sm text-gray-300 hover:text-white transition font-medium" x-text="preset.name"></button>
+                    <button @click="deletePreset(preset.id)" class="text-gray-600 hover:text-red-400 transition ml-2 text-xs">✕</button>
+                </div>
+            </template>
+        </div>
+    </div>
+</div>
+
+<!-- Watchlist Alerts Banner -->
+<div x-show="watchlistAlerts.length > 0" 
+     class="mb-4 p-4 rounded-xl border border-yellow-400 border-opacity-50 bg-yellow-400 bg-opacity-10">
+    <div class="flex items-center gap-3 flex-wrap">
+        <span class="text-yellow-400 font-black text-lg">🔔 Watchlist Alert!</span>
+        <template x-for="alert in watchlistAlerts" :key="alert.ticker">
+            <button @click="openTickerModal(alert)"
+                    class="px-3 py-1 bg-yellow-400 bg-opacity-20 border border-yellow-400 border-opacity-40 rounded-lg text-yellow-300 font-bold text-sm hover:bg-opacity-30 transition">
+                <span x-text="alert.ticker"></span>
+                <span class="text-yellow-500 ml-1" x-text="(alert.price_change_pct > 0 ? '+' : '') + alert.price_change_pct.toFixed(1) + '%'"></span>
+            </button>
+        </template>
+    </div>
+</div>
+
+<!-- Tab Bar -->
+<div class="flex gap-2 mb-3 sm:mb-4 w-full sm:w-auto">
+    <button @click="activeMainTab = 'movers'"
+            :class="activeMainTab === 'movers' ? 'gradient-bg text-white neon-glow' : 'glass-effect text-gray-400 hover:text-white'"
+            class="flex-1 sm:flex-none px-3 sm:px-5 py-2 rounded-xl font-black text-xs sm:text-sm transition-all text-center">
+        <i class="fas fa-bolt mr-2"></i>Movers
+        <span x-show="sortedSignals.length > 0"
+              class="ml-2 px-2 py-0.5 bg-white bg-opacity-20 rounded-full text-xs"
+              x-text="sortedSignals.length"></span>
+    </button>
+    <button x-show="isPro" @click="activeMainTab = 'catalysts'; loadNewsCatalysts()"
+            :class="activeMainTab === 'catalysts' ? 'gradient-bg text-white neon-glow' : 'glass-effect text-gray-400 hover:text-white'"
+            class="flex-1 sm:flex-none px-3 sm:px-5 py-2 rounded-xl font-black text-xs sm:text-sm transition-all text-center">
+        <i class="fas fa-newspaper mr-2"></i>News Catalysts
+        <span x-show="sortedCatalysts.length > 0"
+              class="ml-2 px-2 py-0.5 bg-white bg-opacity-20 rounded-full text-xs"
+              x-text="sortedCatalysts.length"></span>
+    </button>
+</div>
+
+<!-- Results Table -->
+<div x-show="activeMainTab === 'movers' && sortedSignals.length > 0" class="glass-effect rounded-2xl overflow-hidden neon-border">
+    <div class="scrollable-table-container">
+        <table class="min-w-full divide-y divide-white divide-opacity-5">
+            <thead>
+                <tr class="border-b border-white border-opacity-10">
+                    <th class="px-6 py-4 text-left text-xs font-black text-modern-green uppercase tracking-wider">
+                        <i class="fas fa-star mr-2"></i>
+                    </th>
+                    <th class="px-6 py-4 text-left text-xs font-black text-modern-green uppercase tracking-wider">
+                        Ticker
+                    </th>
+                    <th @click="sortBy('price_change_pct')" 
+                        class="px-6 py-4 text-left text-xs font-black text-modern-green uppercase tracking-wider sortable-header">
+                        Change %
+                        <i class="fas fa-sort sort-icon" :class="{ 'active': sortColumn === 'price_change_pct' }"></i>
+                    </th>
+                    <th @click="sortBy('price')" 
+                        class="px-6 py-4 text-left text-xs font-black text-modern-green uppercase tracking-wider sortable-header mobile-hide">
+                        Price
+                        <i class="fas fa-sort sort-icon" :class="{ 'active': sortColumn === 'price' }"></i>
+                    </th>
+                    <th class="px-6 py-4 text-left text-xs font-black text-modern-green uppercase tracking-wider mobile-hide">
+                        News
+                    </th>
+
+                    <th @click="sortBy('ai_score')" 
+                        class="px-6 py-4 text-left text-xs font-black text-modern-green uppercase tracking-wider sortable-header">
+                        AI Score
+                        <i class="fas fa-sort sort-icon" :class="{ 'active': sortColumn === 'ai_score' }"></i>
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-white divide-opacity-5">
+                <template x-for="(signal, index) in sortedSignals" :key="signal.ticker + index">
+                    <tr class="hover:bg-white hover:bg-opacity-5 transition cursor-pointer"
+                        @click="(isPro || isRookie || freeTickerClicks < 5) ? (isPro || isRookie ? openTickerModal(signal) : (freeTickerClicks++, localStorage.setItem('freeTickerClicks', freeTickerClicks), openTickerModal(signal))) : (showAuthModal = true, authMode = 'upgrade')">
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <button @click.stop="(isPro || isRookie) ? toggleWatchlist(signal.ticker) : (showAuthModal = true, authMode = 'upgrade')"
+                                    :class="isTickerInWatchlist(signal.ticker) ? 'text-yellow-400' : 'text-gray-600 hover:text-yellow-400'"
+                                    class="transition">
+                                <i class="fas fa-star text-xl"></i>
+                            </button>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex items-center space-x-3">
+                                <div class="text-2xl font-black text-white" x-text="signal.ticker"></div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="text-2xl font-black"
+                                  :class="signal.price_change_pct >= 0 ? 'text-modern-green' : 'text-red-500'"
+                                  x-text="(signal.price_change_pct || 0).toFixed(1) + '%'"></span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap mobile-hide">
+                            <span class="text-xl font-bold text-white" x-text="'$' + (signal.price || 0).toFixed(2)"></span>
+                        </td>
+                        <td class="px-6 py-4 mobile-hide" style="max-width: 320px;">
+                            <template x-if="signal.news_url && signal.catalyst && signal.catalyst !== 'Price action'">
+                                <a :href="signal.news_url" target="_blank" rel="noopener" @click.stop
+                                   class="flex items-start gap-2 group hover:opacity-80 transition">
+                                    <i class="fas fa-newspaper mt-0.5 shrink-0"
+                                       :class="signal.has_exact_mention ? 'text-modern-green' : 'text-blue-400'"
+                                       style="font-size: 0.7rem;"></i>
+                                    <span class="text-xs text-gray-300 group-hover:text-white transition leading-snug line-clamp-2"
+                                          x-text="signal.catalyst"></span>
+                                </a>
+                            </template>
+                            <template x-if="!signal.news_url || !signal.catalyst || signal.catalyst === 'Price action'">
+                                <span class="text-gray-600 text-xs italic">No ticker news — pure price action</span>
+                            </template>
+                        </td>
+
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-3xl font-black gradient-text" x-text="signal.ai_score || 0"></span>
+                                <span x-show="signal.direction === 'short'"
+                                      class="text-xs font-bold px-2 py-1 rounded bg-red-500 bg-opacity-20 text-red-400 border border-red-500 border-opacity-30">
+                                    SHORT
+                                </span>
+                                <span x-show="signal.direction === 'long' || !signal.direction"
+                                      class="text-xs font-bold px-2 py-1 rounded bg-green-500 bg-opacity-20 text-modern-green border border-green-500 border-opacity-30">
+                                    LONG
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                </template>
+                
+                <tr x-show="signals.morning_gaps.length === 0">
+                    <td colspan="7" class="px-6 py-12 text-center">
+                        <i class="fas fa-chart-line text-6xl text-gray-700 mb-4"></i>
+                        <p class="text-gray-400 text-lg">No signals found. Try different settings.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- News Catalysts Panel -->
+<div x-show="activeMainTab === 'catalysts'" class="space-y-3">
+
+    <!-- Loading -->
+    <div x-show="catalystLoading" class="text-center py-12">
+        <i class="fas fa-sync fa-spin text-modern-green text-2xl"></i>
+        <p class="text-gray-400 mt-3 text-sm">Loading news catalysts...</p>
+    </div>
+
+    <!-- Empty -->
+    <div x-show="!catalystLoading && sortedCatalysts.length === 0"
+         class="glass-effect rounded-2xl p-12 text-center neon-border">
+        <i class="fas fa-newspaper text-4xl text-gray-600 mb-4"></i>
+        <p class="text-gray-400 font-semibold">No active catalysts found</p>
+        <p class="text-gray-600 text-sm mt-1">Scanner checks for news every 30 minutes</p>
+    </div>
+
+    <!-- Catalyst Table -->
+    <div x-show="!catalystLoading && sortedCatalysts.length > 0" class="glass-effect rounded-2xl overflow-hidden neon-border">
+        <div class="scrollable-table-container">
+            <table class="min-w-full divide-y divide-white divide-opacity-5">
+                <thead>
+                    <tr class="border-b border-white border-opacity-10">
+                        <th class="px-4 py-4 text-left text-xs font-black text-modern-green uppercase tracking-wider">Ticker</th>
+                        <th @click="catalystSortDir = catalystSortCol === 'price_change_pct' ? (catalystSortDir === 'desc' ? 'asc' : 'desc') : 'desc'; catalystSortCol = 'price_change_pct'"
+                            class="px-4 py-4 text-left text-xs font-black text-modern-green uppercase tracking-wider sortable-header cursor-pointer">
+                            Change % <i class="fas fa-sort sort-icon" :class="{ 'active': catalystSortCol === 'price_change_pct' }"></i>
+                        </th>
+                        <th @click="catalystSortDir = catalystSortCol === 'ai_score' ? (catalystSortDir === 'desc' ? 'asc' : 'desc') : 'desc'; catalystSortCol = 'ai_score'"
+                            class="px-4 py-4 text-left text-xs font-black text-modern-green uppercase tracking-wider mobile-hide sortable-header cursor-pointer">
+                            AI Score <i class="fas fa-sort sort-icon" :class="{ 'active': catalystSortCol === 'ai_score' }"></i>
+                        </th>
+                        <th @click="catalystSortDir = catalystSortCol === 'move_since_news' ? (catalystSortDir === 'desc' ? 'asc' : 'desc') : 'desc'; catalystSortCol = 'move_since_news'"
+                            class="px-4 py-4 text-left text-xs font-black text-modern-green uppercase tracking-wider mobile-hide sortable-header cursor-pointer">
+                            Since News <i class="fas fa-sort sort-icon" :class="{ 'active': catalystSortCol === 'move_since_news' }"></i>
+                        </th>
+                        <th @click="catalystSortDir = catalystSortCol === 'volume_ratio' ? (catalystSortDir === 'desc' ? 'asc' : 'desc') : 'desc'; catalystSortCol = 'volume_ratio'"
+                            class="px-4 py-4 text-left text-xs font-black text-modern-green uppercase tracking-wider mobile-hide sortable-header cursor-pointer">
+                            Vol <i class="fas fa-sort sort-icon" :class="{ 'active': catalystSortCol === 'volume_ratio' }"></i>
+                        </th>
+                        <th class="px-4 py-4 text-left text-xs font-black text-modern-green uppercase tracking-wider">Headline</th>
+                        <th class="px-4 py-4 text-left text-xs font-black text-modern-green uppercase tracking-wider mobile-hide">Time</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-white divide-opacity-5">
+                    <template x-for="(entry, index) in sortedCatalysts" :key="entry.ticker + index">
+                        <tr class="hover:bg-white hover:bg-opacity-5 transition-colors cursor-pointer">
+                            <!-- Ticker -->
+                            <td class="px-4 py-3 whitespace-nowrap">
+                                <div class="flex items-center gap-2">
+                                    <button @click="(isPro || isRookie || freeTickerClicks < 5) ? (isPro || isRookie ? openTickerModal({ticker: entry.ticker, price: entry.current_price, price_change_pct: entry.price_change_pct, catalyst: entry.headline}) : (freeTickerClicks++, localStorage.setItem('freeTickerClicks', freeTickerClicks), openTickerModal({ticker: entry.ticker, price: entry.current_price, price_change_pct: entry.price_change_pct, catalyst: entry.headline}))) : (showAuthModal = true, authMode = 'upgrade')"
+                                            class="text-white font-black hover:text-modern-green transition text-sm"
+                                            x-text="entry.ticker"></button>
+                                    <span :class="entry.tier === 1 ? 'bg-modern-green bg-opacity-20 text-modern-green' : 'bg-modern-cyan bg-opacity-20 text-modern-cyan'"
+                                          class="px-1.5 py-0.5 rounded text-xs font-black"
+                                          x-text="'T' + entry.tier"></span>
+                                    <span x-show="entry.scanner_qualified" class="text-xs">🔥</span>
+                                </div>
+                                <div :class="entry.price_change_pct >= 0 ? 'text-modern-green' : 'text-red-400'"
+                                     class="text-xs font-bold mt-0.5"
+                                     x-text="entry.price_change_pct >= 0 ? '▲ LONG' : '▼ SHORT'"></div>
+                            </td>
+                            <!-- Change % -->
+                            <td class="px-4 py-3 whitespace-nowrap">
+                                <div :class="entry.price_change_pct >= 0 ? 'text-modern-green' : 'text-red-400'"
+                                     class="font-black text-sm"
+                                     x-text="(entry.price_change_pct >= 0 ? '+' : '') + (entry.price_change_pct || 0).toFixed(2) + '%'"></div>
+                                <div class="text-gray-400 text-xs" x-text="'$' + (entry.current_price || 0).toFixed(2)"></div>
+                            </td>
+                            <!-- AI Score -->
+                            <td class="px-4 py-3 whitespace-nowrap mobile-hide">
+                                <div x-show="entry.ai_score > 0">
+                                    <span :class="entry.ai_score >= 80 ? 'text-modern-green' : entry.ai_score >= 60 ? 'text-yellow-400' : 'text-gray-400'"
+                                          class="font-black text-sm"
+                                          x-text="entry.ai_score"></span>
+                                    <span class="text-gray-600 text-xs ml-0.5">/100</span>
+                                    <div class="text-gray-500 text-xs" x-text="entry.ai_type"></div>
+                                </div>
+                                <span x-show="!entry.ai_score || entry.ai_score === 0" class="text-gray-600 text-xs">—</span>
+                            </td>
+                            <!-- Since news -->
+                            <td class="px-4 py-3 whitespace-nowrap mobile-hide">
+                                <div x-show="entry.move_since_news !== null && entry.move_since_news !== undefined"
+                                     :class="entry.move_since_news >= 0 ? 'text-modern-green' : 'text-red-400'"
+                                     class="text-sm font-bold"
+                                     x-text="(entry.move_since_news >= 0 ? '+' : '') + (entry.move_since_news || 0).toFixed(2) + '%'"></div>
+                                <div x-show="entry.move_since_news === null || entry.move_since_news === undefined"
+                                     class="text-gray-600 text-xs">—</div>
+                            </td>
+                            <!-- Vol ratio -->
+                            <td class="px-4 py-3 whitespace-nowrap mobile-hide">
+                                <span class="text-gray-300 text-sm" x-text="(entry.volume_ratio || 0).toFixed(1) + 'x'"></span>
+                            </td>
+                            <!-- Headline + article link -->
+                            <td class="px-4 py-3">
+                                <p class="text-gray-300 text-xs leading-snug line-clamp-2" x-text="entry.headline"></p>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <span class="text-gray-600 text-xs" x-text="entry.matched_keyword"></span>
+                                    <a x-show="entry.news_url" :href="entry.news_url" target="_blank" @click.stop
+                                       class="text-modern-cyan text-xs hover:text-white transition">
+                                        <i class="fas fa-external-link-alt"></i> Article
+                                    </a>
+                                </div>
+                            </td>
+                            <!-- Time -->
+                            <td class="px-4 py-3 whitespace-nowrap mobile-hide">
+                                <span class="text-gray-500 text-xs"
+                                      x-text="entry.catalyst_at ? new Date(entry.catalyst_at).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : ''"></span>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+        <div class="px-4 py-2 border-t border-white border-opacity-5 text-right">
+            <span x-show="catalystAsOf" class="text-gray-600 text-xs"
+                  x-text="'Updated ' + (catalystAsOf ? new Date(catalystAsOf).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : '')"></span>
+        </div>
+    </div>
+</div>
+
+<!-- Watchlist Panel -->
+<div x-show="isPro" class="glass-effect rounded-2xl p-6 neon-border mt-6">
+    <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-black text-white flex items-center gap-2">
+            ⭐ My Watchlist
+            <span x-show="watchlistAlerts.length > 0"
+                  class="px-2 py-0.5 bg-yellow-400 text-black text-xs font-black rounded-full animate-pulse"
+                  x-text="watchlistAlerts.length + ' alert' + (watchlistAlerts.length > 1 ? 's' : '')"></span>
+        </h3>
+        <span class="text-xs text-gray-500" x-text="watchlist.length + ' stocks'"></span>
+    </div>
+    <div x-show="watchlist.length === 0" class="text-center py-4">
+        <p class="text-gray-500 text-sm">No stocks saved yet.</p>
+        <p class="text-gray-600 text-xs mt-1">Click ⭐ on any stock to add it.</p>
+    </div>
+    <div class="space-y-2">
+        <template x-for="item in watchlist" :key="item.ticker">
+            <div class="flex items-center gap-3 p-3 rounded-xl bg-white bg-opacity-5 hover:bg-opacity-10 transition"
+                 :class="watchlistAlerts.some(a => a.ticker === item.ticker) ? 'border border-yellow-400 border-opacity-40' : ''">
+                <span x-show="watchlistAlerts.some(a => a.ticker === item.ticker)" class="text-yellow-400 text-sm">🔔</span>
+                <button @click="openTickerModal(watchlistAlerts.find(a => a.ticker === item.ticker) || {ticker: item.ticker, price: 0, price_change_pct: 0, ai_score: 0, ep_type: ''})"
+                        class="font-black text-white hover:text-modern-green transition w-16 text-left"
+                        x-text="item.ticker"></button>
+                <template x-if="watchlistAlerts.find(a => a.ticker === item.ticker)">
+                    <span class="text-sm font-bold"
+                          :class="watchlistAlerts.find(a => a.ticker === item.ticker).price_change_pct > 0 ? 'text-green-400' : 'text-red-400'"
+                          x-text="(watchlistAlerts.find(a => a.ticker === item.ticker).price_change_pct > 0 ? '+' : '') + watchlistAlerts.find(a => a.ticker === item.ticker).price_change_pct.toFixed(1) + '%'">
+                    </span>
+                </template>
+                <input type="text" :value="item.notes || ''"
+                       @blur="updateWatchlistItem(item.ticker, 'notes', $event.target.value)"
+                       placeholder="Add note..."
+                       class="flex-1 bg-transparent text-gray-400 text-xs focus:outline-none focus:text-white placeholder-gray-700 min-w-0">
+                <button @click="toggleWatchlist(item.ticker)" class="text-gray-600 hover:text-red-400 transition text-sm flex-shrink-0">✕</button>
+            </div>
+        </template>
+    </div>
+</div>
+
+<!-- TICKER MODAL -->
+<div x-show="showTickerModal" 
+     x-transition
+     @click.self="showTickerModal = false"
+     class="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center sm:p-4 overflow-y-auto">
+    <div @click.stop class="glass-effect rounded-t-2xl sm:rounded-2xl max-w-6xl w-full sm:my-8 neon-border">
+        <!-- Header -->
+        <div class="sticky top-0 bg-modern-dark bg-opacity-95 backdrop-blur-sm p-3 sm:p-5 border-b border-white border-opacity-10 rounded-t-2xl z-10">
+            <div class="flex items-start justify-between gap-4">
+                <!-- Ticker + price -->
+                <div class="flex items-center gap-5 flex-wrap">
+                    <h2 class="text-xl sm:text-3xl font-black gradient-text" x-text="selectedTicker"></h2>
+
+                    <!-- Price strip -->
+                    <div x-show="tickerQuoteLoading" class="text-gray-500 text-sm animate-pulse">Loading...</div>
+                    <div x-show="tickerQuote && !tickerQuoteLoading" class="flex items-center gap-2 sm:gap-5 flex-wrap">
+                        <!-- Current price + change -->
+                        <div>
+                            <span class="text-white font-black text-lg sm:text-2xl" x-text="tickerQuote ? '$' + tickerQuote.current : ''"></span>
+                            <span :class="tickerQuote && tickerQuote.pct_change >= 0 ? 'text-modern-green' : 'text-red-400'"
+                                  class="ml-2 font-bold text-sm"
+                                  x-text="tickerQuote ? (tickerQuote.pct_change >= 0 ? '+' : '') + tickerQuote.pct_change.toFixed(2) + '%' : ''"></span>
+                        </div>
+                        <!-- OHLC pills -->
+                        <div class="flex items-center gap-3 text-xs">
+                            <span class="text-gray-500">O <span class="text-gray-300 font-semibold" x-text="tickerQuote?.open ? '$' + tickerQuote.open : '—'"></span></span>
+                            <span class="text-gray-500">C <span class="text-gray-300 font-semibold" x-text="tickerQuote?.close ? '$' + tickerQuote.close : '—'"></span></span>
+                            <span class="text-gray-500">H <span class="text-modern-green font-semibold" x-text="tickerQuote?.day_high ? '$' + tickerQuote.day_high : '—'"></span></span>
+                            <span class="text-gray-500">L <span class="text-red-400 font-semibold" x-text="tickerQuote?.day_low ? '$' + tickerQuote.day_low : '—'"></span></span>
+                        </div>
+                        <!-- After-hours / pre-market badge -->
+                        <div x-show="tickerQuote && (tickerQuote.post_price || tickerQuote.pre_price)"
+                             class="flex items-center gap-2">
+                            <!-- Post-market -->
+                            <template x-if="tickerQuote && tickerQuote.post_price">
+                                <div class="px-2 py-1 rounded-lg bg-purple-500 bg-opacity-20 border border-purple-500 border-opacity-30">
+                                    <span class="text-purple-300 text-xs font-bold">AH </span>
+                                    <span class="text-white text-xs font-black" x-text="'$' + tickerQuote.post_price"></span>
+                                    <span :class="tickerQuote.post_pct >= 0 ? 'text-modern-green' : 'text-red-400'"
+                                          class="text-xs font-bold ml-1"
+                                          x-text="tickerQuote.post_pct ? (tickerQuote.post_pct >= 0 ? '+' : '') + tickerQuote.post_pct.toFixed(2) + '%' : ''"></span>
+                                </div>
+                            </template>
+                            <!-- Pre-market -->
+                            <template x-if="tickerQuote && tickerQuote.pre_price && !tickerQuote.post_price">
+                                <div class="px-2 py-1 rounded-lg bg-blue-500 bg-opacity-20 border border-blue-500 border-opacity-30">
+                                    <span class="text-blue-300 text-xs font-bold">PM </span>
+                                    <span class="text-white text-xs font-black" x-text="'$' + tickerQuote.pre_price"></span>
+                                    <span :class="tickerQuote.pre_pct >= 0 ? 'text-modern-green' : 'text-red-400'"
+                                          class="text-xs font-bold ml-1"
+                                          x-text="tickerQuote.pre_pct ? (tickerQuote.pre_pct >= 0 ? '+' : '') + tickerQuote.pre_pct.toFixed(2) + '%' : ''"></span>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="flex items-center space-x-3 shrink-0">
+                    <button @click="toggleWatchlist(selectedTicker)"
+                            :class="isInWatchlist ? 'text-yellow-400' : 'text-gray-600 hover:text-yellow-400'"
+                            class="transition">
+                        <i class="fas fa-star text-2xl"></i>
+                    </button>
+                    <button @click="showTickerModal = false" class="text-gray-400 hover:text-white transition">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Content -->
+        <div class="p-3 sm:p-6 space-y-6 sm:space-y-8 max-h-[75dvh] sm:max-h-[80vh] overflow-y-auto">
+            
+            <!-- Chart Section -->
+            <div class="space-y-2 sm:space-y-4" x-data="{ chartOpen: true }">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg sm:text-2xl font-bold gradient-text flex items-center">
+                        <i class="fas fa-chart-line mr-2 sm:mr-3"></i>Chart
+                    </h3>
+                    <button @click="chartOpen = !chartOpen"
+                            class="sm:hidden text-gray-400 hover:text-white transition px-2 py-1 rounded-lg glass-effect text-xs font-bold">
+                        <i class="fas" :class="chartOpen ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+                        <span x-text="chartOpen ? 'Hide' : 'Show'"></span>
+                    </button>
+                </div>
+                <div x-show="chartOpen" x-transition
+                     class="tradingview-widget-container rounded-xl overflow-hidden"
+                     style="height: 300px;">
+                    <div :id="'tradingview_' + selectedTicker" style="height: 100%;"></div>
+                </div>
+            </div>
+            
+            <!-- AI Analysis Section -->
+            <div class="space-y-4">
+                <h3 class="text-2xl font-bold gradient-text flex items-center">
+                    <i class="fas fa-brain mr-3"></i>AI Analysis
+                </h3>
+                
+                <!-- AI Analysis - free preview for first 5 clicks -->
+                <template x-if="!isPro && !isRookie && freeTickerClicks >= 5">
+                    <div class="glass-effect rounded-xl p-8 border border-yellow-500 border-opacity-30 text-center">
+                        <i class="fas fa-lock text-3xl text-yellow-400 mb-3"></i>
+                        <p class="text-white font-black text-lg mb-1">Subscribe to Continue</p>
+                        <p class="text-gray-400 text-sm mb-4">You've used your 5 free previews. Subscribe to unlock full access.</p>
+                        <button @click="showAuthModal = true; authMode = 'upgrade'" class="gradient-bg text-white px-6 py-2 rounded-xl font-black text-sm neon-glow">View Plans</button>
+                    </div>
+                </template>
+                <div x-show="isPro || isRookie || freeTickerClicks < 5" class="glass-effect rounded-xl p-6 border border-white border-opacity-10">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-4">
+                            <div>
+                                <p class="text-sm text-gray-400 mb-1">AI Score</p>
+                                <p class="text-5xl font-black gradient-text mt-2" x-text="selectedScore"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="text-right">
+                            <span x-show="selectedSignal?.direction === 'short'"
+                                  class="inline-block text-sm font-bold px-3 py-1 rounded bg-red-500 bg-opacity-20 text-red-400 border border-red-500 border-opacity-30">
+                                ↓ SHORT SETUP
+                            </span>
+                            <span x-show="selectedSignal?.direction !== 'short'"
+                                  class="inline-block text-sm font-bold px-3 py-1 rounded bg-green-500 bg-opacity-20 text-modern-green border border-green-500 border-opacity-30">
+                                ↑ LONG SETUP
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 pt-6 border-t border-white border-opacity-10">
+                        <p class="text-sm text-gray-400 mb-3 uppercase font-bold">Analysis</p>
+                        <p class="text-white text-lg leading-relaxed" x-text="selectedAnalysis"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- News Section -->
+            <div class="space-y-4" x-show="isPro || isRookie || freeTickerClicks < 5">
+                <h3 class="text-2xl font-bold gradient-text flex items-center">
+                    <i class="fas fa-newspaper mr-3"></i>News
+                </h3>
+                
+                <template x-if="newsArticles.length === 0">
+                    <div class="text-center py-8">
+                        <i class="fas fa-newspaper text-4xl text-gray-700 mb-3"></i>
+                        <p class="text-gray-400">No recent news found</p>
+                    </div>
+                </template>
+                
+                <div class="space-y-3">
+                    <template x-for="(article, index) in newsArticles" :key="index">
+                        <a :href="article.url" target="_blank" 
+                           class="block p-4 glass-effect rounded-xl hover:bg-white hover:bg-opacity-10 transition border border-white border-opacity-5">
+                            <p class="text-white font-bold mb-2 line-clamp-2" x-text="article.headline"></p>
+                            <div class="flex items-center justify-between text-xs text-gray-500">
+                                <span x-text="formatNewsTime(article.publish_time || article.datetime)"></span>
+                            </div>
+                        </a>
+                    </template>
+                </div>
+            </div>
+            
+            <!-- Company Profile Section -->
+            <div class="space-y-4" x-show="isPro || isRookie || freeTickerClicks < 5">
+                <h3 class="text-2xl font-bold gradient-text flex items-center">
+                    <i class="fas fa-building mr-3"></i>Company Profile
+                </h3>
+                
+                <div x-show="companyProfileLoading" class="glass-effect rounded-xl p-6 border border-white border-opacity-10">
+                    <div class="animate-pulse flex space-x-4">
+                        <div class="flex-1 space-y-3">
+                            <div class="h-4 bg-gray-700 rounded w-3/4"></div>
+                            <div class="h-3 bg-gray-700 rounded w-1/2"></div>
+                            <div class="h-3 bg-gray-700 rounded w-full"></div>
+                            <div class="h-3 bg-gray-700 rounded w-5/6"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div x-show="companyProfile && !companyProfileLoading" class="glass-effect rounded-xl p-6 border border-white border-opacity-10 space-y-4">
+                    <div>
+                        <p class="text-xl font-black text-white" x-text="companyProfile?.name"></p>
+                        <div class="flex flex-wrap gap-3 mt-2">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-modern-green bg-opacity-15 text-modern-green border border-modern-green border-opacity-30"
+                                  x-text="companyProfile?.sector" x-show="companyProfile?.sector !== 'N/A'"></span>
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-white bg-opacity-10 text-gray-300"
+                                  x-text="companyProfile?.industry" x-show="companyProfile?.industry !== 'N/A'"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-4 pt-2 border-t border-white border-opacity-10">
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase font-bold">Market Cap</p>
+                            <p class="text-sm font-bold text-white mt-1" x-text="companyProfile?.market_cap"></p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase font-bold">Employees</p>
+                            <p class="text-sm font-bold text-white mt-1" x-text="companyProfile?.employees"></p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase font-bold">Country</p>
+                            <p class="text-sm font-bold text-white mt-1" x-text="companyProfile?.country"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-2 border-t border-white border-opacity-10">
+                        <p class="text-sm text-gray-300 leading-relaxed" x-text="companyProfile?.description"></p>
+                    </div>
+                    
+                    <div x-show="companyProfile?.website">
+                        <a :href="companyProfile?.website" target="_blank" rel="noopener"
+                           class="text-xs text-modern-green hover:underline flex items-center gap-1">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span x-text="companyProfile?.website?.replace('https://','').replace('http://','')"></span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div x-show="!companyProfile && !companyProfileLoading" class="text-sm text-gray-600 px-2">
+                    Profile unavailable
+                </div>
+            </div>
+
+            <!-- Pro Upsell Banner (free users only) -->
+            <template x-if="!isPro">
+                <div class="glass-effect rounded-xl p-6 border border-yellow-500 border-opacity-40 text-center space-y-3">
+                    <p class="text-yellow-400 font-black text-lg">⭐ Unlock Full Analysis</p>
+                    <p class="text-gray-400 text-sm">Pro includes AI scoring, trade levels, full news feed, company profiles & watchlist alerts</p>
+                    <button @click="showAuthModal = true; authMode = 'upgrade'" class="gradient-bg text-white px-8 py-3 rounded-xl font-black neon-glow">Upgrade to Pro</button>
+                </div>
+            </template>
+
+            
+        </div>
+    </div>
+</div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center py-6 text-gray-600 text-xs border-t border-white border-opacity-5 mt-4 space-y-2">
+            <div class="flex items-center justify-center gap-4">
+                <a href="/terms-of-use" class="hover:text-modern-green transition">Terms of Use</a>
+                <span class="text-gray-700">|</span>
+                <a href="/privacy-policy" class="hover:text-modern-green transition">Privacy Policy</a>
+            </div>
+            <div>&copy; 2026 Money Making Moves. All rights reserved.</div>
+        </footer>
+        
+        <!-- Auth Modal -->
+        <div x-show="showAuthModal" 
+             x-transition
+             @click.self="showAuthModal = false"
+             class="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+            <div class="glass-effect rounded-2xl p-8 max-w-md w-full neon-border relative" style="background: rgba(10,10,15,0.97);">
+                
+                <!-- Header -->
+                <div class="mb-8">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-sm"></i>
+                        </div>
+                        <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">Money Making Moves</span>
+                    </div>
+                    <h2 class="text-3xl font-black gradient-text">
+                        <span x-text="authMode === 'upgrade' ? 'Upgrade to Pro' : (authMode === 'login' ? 'Welcome back' : 'Create account')"></span>
+                    </h2>
+                    <p class="text-gray-500 text-sm mt-1">
+                        <span x-text="authMode === 'upgrade' ? 'Unlock all advanced features' : (authMode === 'login' ? 'Sign in to access your scanner & watchlist' : 'Join to track stocks & get AI signals')"></span>
+                    </p>
+                </div>
+
+                <!-- UPGRADE PANEL -->
+                <template x-if="authMode === 'upgrade'">
+                    <div class="space-y-4">
+                        <div class="rounded-xl border border-white border-opacity-10 p-4 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <div><span class="text-white font-black text-lg">Rookie</span><span class="ml-2 text-modern-green font-bold">$10/mo</span></div>
+                                <span class="text-xs text-gray-500 bg-white bg-opacity-5 px-2 py-1 rounded-lg">7-day trial</span>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-2 text-sm text-gray-300"><i class="fas fa-check text-modern-green w-4"></i>Ticker modal & AI scores</div>
+                                <div class="flex items-center gap-2 text-sm text-gray-300"><i class="fas fa-check text-modern-green w-4"></i>Watchlist</div>
+                                <div class="flex items-center gap-2 text-sm text-gray-300"><i class="fas fa-check text-modern-green w-4"></i>Saved scan presets</div>
+                            </div>
+                            <button @click="createCheckout('rookie'); showAuthModal = false" class="w-full bg-white bg-opacity-10 hover:bg-opacity-20 text-white px-6 py-3 rounded-xl font-black text-sm transition flex items-center justify-center gap-2">
+                                <i class="fas fa-bolt"></i> Start Rookie Trial
+                            </button>
+                        </div>
+                        <div class="rounded-xl border border-modern-green border-opacity-50 p-4 space-y-3 relative">
+                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-modern-green text-black text-xs font-black px-3 py-1 rounded-full">MOST POPULAR</div>
+                            <div class="flex items-center justify-between">
+                                <div><span class="text-white font-black text-lg">Pro</span><span class="ml-2 text-modern-green font-bold">$25/mo</span></div>
+                                <span class="text-xs text-gray-500 bg-white bg-opacity-5 px-2 py-1 rounded-lg">7-day trial</span>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-2 text-sm text-gray-300"><i class="fas fa-check text-modern-green w-4"></i>Everything in Rookie</div>
+                                <div class="flex items-center gap-2 text-sm text-gray-300"><i class="fas fa-check text-modern-green w-4"></i>Ticker search & deep dive</div>
+                                <div class="flex items-center gap-2 text-sm text-gray-300"><i class="fas fa-check text-modern-green w-4"></i>News Catalysts tab</div>
+                            </div>
+                            <button @click="createCheckout('pro'); showAuthModal = false" class="w-full gradient-bg text-white px-6 py-3 rounded-xl font-black text-sm neon-glow hover:scale-105 transition flex items-center justify-center gap-2">
+                                <i class="fas fa-bolt"></i> Start Pro Trial
+                            </button>
+                        </div>
+                        <button @click="showAuthModal = false" class="w-full text-center text-gray-600 text-sm hover:text-gray-400 transition">Maybe later</button>
+                    </div>
+                </template>
+
+                <!-- Tab switcher (login/signup only) -->
+                <div x-show="authMode !== 'upgrade'" class="flex rounded-xl overflow-hidden border border-white border-opacity-10 mb-6">
+                    <button @click="authMode = 'login'"
+                            :class="authMode === 'login' ? 'bg-modern-card text-white' : 'text-gray-500 hover:text-gray-300'"
+                            class="flex-1 py-2.5 text-sm font-bold transition-all">Login</button>
+                    <button @click="authMode = 'signup'"
+                            :class="authMode === 'signup' ? 'bg-modern-card text-white' : 'text-gray-500 hover:text-gray-300'"
+                            class="flex-1 py-2.5 text-sm font-bold transition-all">Sign Up</button>
+                </div>
+
+                <div x-show="authMode !== 'upgrade'">
+                <form @submit.prevent="authMode === 'login' 
+                    ? login($refs.loginEmail.value, $refs.loginPassword.value) 
+                    : signup($refs.signupEmail.value, $refs.signupUsername.value, $refs.signupPassword.value, $refs.signupPasswordConfirm.value)">
+
+                    <!-- LOGIN FIELDS -->
+                    <template x-if="authMode === 'login'"><div>
+                        <div class="mb-4">
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Email</label>
+                            <div class="relative">
+                                <i class="fas fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-sm"></i>
+                                <input x-ref="loginEmail" type="email" required placeholder="you@example.com"
+                                       class="w-full pl-10 pr-4 py-3 rounded-xl bg-modern-card text-white border border-white border-opacity-10 focus:border-modern-green focus:outline-none focus:ring-1 focus:ring-modern-green focus:ring-opacity-30 placeholder-gray-600 transition">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Password</label>
+                            <div class="relative">
+                                <i class="fas fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-sm"></i>
+                                <input x-ref="loginPassword" :type="showLoginPassword ? 'text' : 'password'" required placeholder="••••••••"
+                                       class="w-full pl-10 pr-12 py-3 rounded-xl bg-modern-card text-white border border-white border-opacity-10 focus:border-modern-green focus:outline-none focus:ring-1 focus:ring-modern-green focus:ring-opacity-30 placeholder-gray-600 transition">
+                                <button type="button" @click="showLoginPassword = !showLoginPassword"
+                                        class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 transition">
+                                    <i :class="showLoginPassword ? 'fa-eye-slash' : 'fa-eye'" class="fas text-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div></template>
+
+                    <!-- SIGNUP FIELDS -->
+                    <template x-if="authMode === 'signup'"><div>
+                        <div class="mb-4">
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Username</label>
+                            <div class="relative">
+                                <i class="fas fa-at absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-sm"></i>
+                                <input x-ref="signupUsername" type="text" required placeholder="tradergod99"
+                                       class="w-full pl-10 pr-4 py-3 rounded-xl bg-modern-card text-white border border-white border-opacity-10 focus:border-modern-green focus:outline-none focus:ring-1 focus:ring-modern-green focus:ring-opacity-30 placeholder-gray-600 transition">
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Email</label>
+                            <div class="relative">
+                                <i class="fas fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-sm"></i>
+                                <input x-ref="signupEmail" type="email" required placeholder="you@example.com"
+                                       class="w-full pl-10 pr-4 py-3 rounded-xl bg-modern-card text-white border border-white border-opacity-10 focus:border-modern-green focus:outline-none focus:ring-1 focus:ring-modern-green focus:ring-opacity-30 placeholder-gray-600 transition">
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Password</label>
+                            <div class="relative">
+                                <i class="fas fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-sm"></i>
+                                <input x-ref="signupPassword" :type="showSignupPassword ? 'text' : 'password'" required placeholder="Min 8 characters"
+                                       class="w-full pl-10 pr-12 py-3 rounded-xl bg-modern-card text-white border border-white border-opacity-10 focus:border-modern-green focus:outline-none focus:ring-1 focus:ring-modern-green focus:ring-opacity-30 placeholder-gray-600 transition">
+                                <button type="button" @click="showSignupPassword = !showSignupPassword"
+                                        class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 transition">
+                                    <i :class="showSignupPassword ? 'fa-eye-slash' : 'fa-eye'" class="fas text-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Confirm Password</label>
+                            <div class="relative">
+                                <i class="fas fa-shield-alt absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-sm"></i>
+                                <input x-ref="signupPasswordConfirm" :type="showSignupPassword ? 'text' : 'password'" required placeholder="Repeat password"
+                                       class="w-full pl-10 pr-4 py-3 rounded-xl bg-modern-card text-white border border-white border-opacity-10 focus:border-modern-green focus:outline-none focus:ring-1 focus:ring-modern-green focus:ring-opacity-30 placeholder-gray-600 transition">
+                            </div>
+                        </div>
+                    </div></template>
+
+                    <!-- Terms & Privacy checkbox (signup only) -->
+                    <template x-if="authMode === 'signup'">
+                        <div class="flex items-start gap-3 py-2">
+                            <input type="checkbox" x-ref="termsAccepted" id="termsAccepted" required
+                                   class="mt-1 w-4 h-4 accent-green-400 cursor-pointer shrink-0">
+                            <label for="termsAccepted" class="text-xs text-gray-400 leading-relaxed">
+                                I have read and agree to the
+                                <a href="/terms-of-use" target="_blank" class="text-modern-green hover:underline font-semibold">Terms of Use</a>
+                                and
+                                <a href="/privacy-policy" target="_blank" class="text-modern-green hover:underline font-semibold">Privacy Policy</a>
+                            </label>
+                        </div>
+                    </template>
+
+                    <button type="submit" :disabled="authLoading"
+                            class="w-full gradient-bg text-white px-8 py-4 rounded-xl font-black text-base neon-glow hover:scale-105 transition disabled:opacity-50 disabled:scale-100 flex items-center justify-center gap-2">
+                        <i x-show="authLoading" class="fas fa-spinner fa-spin"></i>
+                        <span x-text="authLoading ? 'Please wait...' : (authMode === 'login' ? '→ Sign In' : '→ Create Account')"></span>
+                    </button>
+                </form>
+
+                <p class="text-center text-xs text-gray-600 mt-5">
+                    <span x-text="authMode === 'login' ? 'No account yet?' : 'Already have an account?'"></span>
+                    <button @click="authMode = authMode === 'login' ? 'signup' : 'login'"
+                            class="text-modern-green hover:underline ml-1 font-semibold">
+                        <span x-text="authMode === 'login' ? 'Sign up free' : 'Log in'"></span>
+                    </button>
+                </p>
+                </div><!-- end login/signup wrapper -->
+
+                <button @click="showAuthModal = false" 
+                        class="absolute top-4 right-4 text-gray-500 hover:text-white transition w-8 h-8 rounded-lg hover:bg-white hover:bg-opacity-10 flex items-center justify-center">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Toast Notification -->
+        <div x-show="showToast" 
+             x-transition
+             class="fixed top-4 right-4 z-[110] glass-effect rounded-xl px-6 py-4 neon-border max-w-sm">
+            <p class="text-white font-semibold" x-text="toastMessage"></p>
+        </div>
+        
+    </div>
+    
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script src="/static/js/dashboard.js?v={{ build_version }}"></script>
+</body>
+</html>
