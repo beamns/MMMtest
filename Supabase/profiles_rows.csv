@@ -1,3 +1,0 @@
-id,email,full_name,phone,subscription_status,subscription_plan,stripe_customer_id,created_at,updated_at
-9dfa1a47-041b-4f76-abb7-b74a81d7b931,info@beamns.com,Nick,,free,,,2026-02-09 15:55:54.885671+00,2026-02-09 15:55:54.885671+00
-ac8d6cbe-f94b-42a3-a946-a9de81986294,kotikutaiye@gmail.com,Taiye Kotiku,,free,,cus_TwxNDuJcgCYEiY,2026-02-06 03:29:46.176823+00,2026-02-06 03:29:46.176823+00
