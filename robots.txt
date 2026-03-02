@@ -1,0 +1,24 @@
+# robots.txt for Money Making Moves
+User-agent: *
+Allow: /
+Allow: /static/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://moneymakingmoves.com/sitemap.xml
+
+# Crawl-delay for polite bots
+Crawl-delay: 1
+
+# Specific bot instructions
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: AhrefsBot
+Crawl-delay: 2
+
+User-agent: SemrushBot
+Crawl-delay: 2
